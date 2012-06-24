@@ -2,6 +2,9 @@
 
 class User extends AppModel
 {
+    /**
+     * $idからUserオブジェクトを取得する
+     */
     public static function get($id)
     {
         $db = DB::conn();
@@ -13,6 +16,10 @@ class User extends AppModel
         return new self($row);
     }
 
+    /**
+     * ユーザを新規作成する
+     * 既に作成されている場合は作成しない
+     */
     public static function create($name, $access_token)
     {
         $db = DB::conn();
@@ -39,6 +46,9 @@ class User extends AppModel
         return $user;
     }
 
+    /**
+     * ユーザを一意に識別するためのIDを生成する
+     */
     public static function generateId()
     {
         $db = DB::conn();

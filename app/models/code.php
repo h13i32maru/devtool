@@ -4,7 +4,10 @@ class Code extends AppModel
 {
     public $user = null;
 
-    public static function getAll($user, $code_pack_id)
+    /**
+     * $code_pack_idに紐付く全てのCodeを取得する
+     */
+    public static function getAll(User $user, $code_pack_id)
     {
         $codes = array();
 

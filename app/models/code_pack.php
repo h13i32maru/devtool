@@ -7,7 +7,11 @@ class CodePack extends AppModel
 
     public $user = null;
 
-    public static function get($user, $path)
+    /**
+     * $pathで指定されるCodePackを取得する
+     * 取得したCodePackが$userのものだった場合書き込み権限が与えられる
+     */
+    public static function get(User $user, $path)
     {
         $db = DB::conn();
 
@@ -25,7 +29,11 @@ class CodePack extends AppModel
         return new self($row);
     }
 
-    public static function getAll($user)
+    /**
+     * $userが持つ全てのCodePackを取得する
+     * 書き込み権限は全て有効になる
+     */
+    public static function getAll(User $user)
     {
         $code_packs = array();
 
@@ -42,8 +50,9 @@ class CodePack extends AppModel
 
     /**
      * 新規にコードパックを作成する
+     * 書き込み権限は有効になる
      */
-    public static function create($user, $title, $description, $codes_param)
+    public static function create(User $user, $title, $description, $codes_param)
     {
         $db = DB::conn();
 
@@ -83,7 +92,7 @@ class CodePack extends AppModel
     }
 
     /**
-     * 新しくコードを追加する
+     * 新しくCodeを追加する
      */
     public function add($class, $code)
     {
@@ -106,7 +115,7 @@ class CodePack extends AppModel
     }
 
     /**
-     * 全てのコードを取得する
+     * 全てのCodeを取得する
      */
     public function getCodes()
     {
@@ -114,7 +123,7 @@ class CodePack extends AppModel
     }
 
     /**
-     * {id,class,code}[]を受け取ってコードを更新する
+     * [{id,class,code}, ...]を受け取ってコードを更新する
      * idがnullのものは新規作成とする
      */
     public function updateCodes($codes)
@@ -144,6 +153,9 @@ class CodePack extends AppModel
         $db->commit();
     }
 
+    /**
+     * CodePackを更新する
+     */
     public function update($title, $description)
     {
         $this->checkPermission();
@@ -154,7 +166,7 @@ class CodePack extends AppModel
     }
 
     /**
-     * code_packと関連づくcodeを全て削除する
+     * CodePackと関連づくCodeを全て削除する
      */
     public function delete()
     {
@@ -171,6 +183,9 @@ class CodePack extends AppModel
 
     }
 
+    /**
+     * 書き込み権限があるか確認する
+     */
     public function checkPermission()
     {
         if (!$this->writable) {
