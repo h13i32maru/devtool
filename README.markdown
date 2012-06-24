@@ -49,7 +49,7 @@ session.gc_maxlifetime = 86400
 ```sh
 mkdir ~/www
 cd ~/www
-git clone hogehoge
+git@github.com:h13i32maru/devtool.git
 cd devtool/app/config/
 cp _sample_google.php google.php
 cp _sample_core.php core.php
