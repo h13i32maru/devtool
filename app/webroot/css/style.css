@@ -1,0 +1,78 @@
+body {
+  padding:40px;
+  padding-top:60px;
+}
+
+a.auth {
+  padding:0.4em;
+}
+
+.sorry {
+  margin-top:40px;
+  text-align:center;
+  font-size:3em;
+  font-weight:bold;
+}
+
+.auth.hero-unit {
+  width:600px;
+  margin:auto;
+  margin-top:70px;
+}
+
+.auth.hero-unit p {
+  font-size:1.2em;
+  font-weight:bold;
+}
+
+footer {
+  margin-top:40px;
+  padding-top:1em;
+  text-align:right;
+  border-top:1px solid #ddd;
+}
+footer, footer a {
+  color:#888;
+}
+
+.help {
+  position:absolute;
+  top:50px;
+  right:20px;
+  font-size:1.5em;
+  width:30px;
+  height:30px;
+  border-radius:15px;
+  padding:0;
+  text-align:center;
+  vertical-align:middle;
+  line-height:30px;
+}
+
+
+/* ---- code ---- */
+.code-form input[type="text"], .code-form select, .code-form textarea {
+  display:block;
+}
+.code-form input[type="text"], .code-form textarea {
+  width:100%;
+}
+.code-form textarea {
+  height:30em;
+  line-height:1;
+}
+.code-form input[type="submit"]{
+  margin-bottom:8px;
+}
+.btn-danger {
+  margin-left:1em;
+}
+
+header.code {
+  margin-bottom:1em;
+}
+
+pre code {
+  background:transparent !important;
+  line-height:1.1;
+}
