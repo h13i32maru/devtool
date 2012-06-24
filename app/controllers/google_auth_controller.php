@@ -27,10 +27,11 @@ class GoogleAuthController extends AppController
             return;
         }
 
-        $user = User::create($result['identity'], $reulst['token']);
+        $user = User::create($result['identity'], $result['token']);
         Session::setId($user->id);
 
         $url = Session::get('redirect', '/');
+        Session::delete('redirect');
         $this->redirect($url);
     }
 }

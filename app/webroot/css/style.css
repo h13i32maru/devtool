@@ -17,7 +17,7 @@ a.auth {
 .auth.hero-unit {
   width:600px;
   margin:auto;
-  margin-top:70px;
+  margin-top:50px;
 }
 
 .auth.hero-unit p {
@@ -69,6 +69,10 @@ footer, footer a {
 }
 
 header.code {
+  margin-bottom:1em;
+}
+
+.code-content {
   margin-bottom:1em;
 }
 

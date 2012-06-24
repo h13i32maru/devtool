@@ -24,8 +24,19 @@
 </div>
 
 <div class="span9">
+
+<div class="alert alert-error attention">
+<button class="close" data-dismiss="alert">×</button>
+Codeはデータの永続性を保証しません。またDevToolにログインすることができ、URLを知っている人なら誰でも任意のCodeを見ることができます。そのため他人に見せてはまずいようなデータを保存しないでください。
+以上のことを理解した上でご利用ください。
+</div>
+
+<div class="code-content">
 {% block code_content %}
 {% endblock %}
+</div>
+</div>
+
 </div>
 
 </div>
@@ -50,6 +61,7 @@
       <li>Raw表示
       <li>コードの検索機能(Title, Descriptionを対象)
       <li>他人のコードの閲覧履歴機能
+      <li>画像やその他のファイルの添付機能
       <li>コードをブックマークする機能
       <li>コードにいいねをできる機能
     </ul>

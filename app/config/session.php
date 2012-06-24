@@ -30,4 +30,9 @@ class Session
         
         return isset($_SESSION[$key]) ? $_SESSION[$key] : $default;
     }
+
+    public static function delete($key)
+    {
+        unset($_SESSION[$key]);
+    }
 }
