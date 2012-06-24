@@ -28,6 +28,11 @@ class AppController extends Controller
         }
     }
 
+    /**
+     * 指定のURLへリダイレクトする
+     * redirect('hoge/foo', array('param' => $value);
+     * redirect('http://example.com');
+     */
     public function redirect($url, $params = array())
     {
         $query = http_build_query($params);
@@ -48,13 +53,29 @@ class AppController extends Controller
         exit;
     }
     
+    /**
+     * セッションを開始する
+     * 戻り値としてUserオブジェクトを取得する
+     */
     public function start()
     {
         $id = Session::getId();
         if (!$id) {
-            $this->redirect('top/auth');
+            $url = $this->getUrl();
+            Session::set('redirect', $url);
+            $this->redirect('top/index');
         }
         $user = User::get($id);
         return $user;
+    }
+
+    /**
+     * 現在のURLを取得する
+     */
+    public function getUrl()
+    {
+        $query = preg_replace('/dc_action=.*?&/', '', $_SERVER['QUERY_STRING']);
+        $url = APP_URL . $this->name . '/' . $this->action . '?' . $query;
+        return $url;
     }
 }

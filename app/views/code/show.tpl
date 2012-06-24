@@ -5,7 +5,7 @@
 {% if code_pack.writable %}
 <header class="code">
   <a class="btn btn-primary" href="{{ url('code/edit', {p:code_pack.path}) }}">Edit</a>
-  <a class="btn btn-danger" onclick="return Code.deleteConfirm()" href="{{ url('code/delete', {p:code_pack.path}) }}">Delete</a>
+  <a class="btn btn-danger" onclick="return Code.deleteConfirm()" href="{{ url('code/exec_delete', {p:code_pack.path}) }}">Delete</a>
 </header>
 {% endif %}
 

@@ -1,49 +1,36 @@
 <?php
 
-/**
- * info
- * https://developers.google.com/accounts/docs/OAuth2
- * http://code.google.com/p/google-api-php-client/wiki/OAuth2
- */
-require_once CONFIG_DIR . 'google.php';
-
 class GoogleAuthController extends AppController
 {
+    /**
+     * Googleアカウントの認証画面へリダイレクトする
+     */
     public function index()
     {
-        $client = createGoogleClient();
-        $oauth2 = new apiOauth2Service($client);
-        $authUrl = $client->createAuthUrl();
-        $this->redirect($authUrl);
+        $url = GoogleAuth::getAuthUrl();
+        $this->redirect($url);
     }
 
+    /**
+     * 認証画面からのコールバックを処理する
+     */
     public function callback()
     {
         $code = Param::get('code');
-        if (!$code) {
+        try {
+            $result = GoogleAuth::verify($code);
+        } catch (AuthDeniedException $e) {
             $this->redirect('/');
             return;
-        }
-
-        $client = createGoogleClient();
-        $oauth2 = new apiOauth2Service($client);
-
-        $client->authenticate();
-        $token = $client->getAccessToken();
-
-        $user = $oauth2->userinfo->get();
-        $email = filter_var($user['email'], FILTER_SANITIZE_EMAIL);
-
-        $tmp = explode('@', $email);
-        $domain = array_pop($tmp);
-        if ($domain !== 'klab.jp') {
+        } catch (PermissionDeniedException $e) {
             $this->render('error/permission');
             return;
         }
 
-        $user = User::create($email, $token);
+        $user = User::create($result['identity'], $reulst['token']);
         Session::setId($user->id);
 
-        $this->redirect('/');
+        $url = Session::get('redirect', '/');
+        $this->redirect($url);
     }
 }

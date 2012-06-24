@@ -2,6 +2,9 @@
 
 class CodeController extends AppController
 {
+    /**
+     * 自分のコード一覧と新規作成画面を表示する
+     */
     public function index()
     {
         $user = $this->start();
@@ -11,7 +14,10 @@ class CodeController extends AppController
         $this->set(get_defined_vars());
     }
 
-    public function create()
+    /**
+     * 新しいコードを作成する
+     */
+    public function exec_create()
     {
         $user = $this->start();
 
@@ -29,6 +35,9 @@ class CodeController extends AppController
         $this->redirect('code/show', array('p' => $code_pack->path));
     }
 
+    /**
+     * 指定されたコードを表示する
+     */
     public function show()
     {
         $user = $this->start();
@@ -42,6 +51,9 @@ class CodeController extends AppController
         $this->set(get_defined_vars());
     }
 
+    /**
+     * 指定されたコードを編集する画面を表示する
+     */
     public function edit()
     {
         $user = $this->start();
@@ -55,6 +67,9 @@ class CodeController extends AppController
         $this->set(get_defined_vars());
     }
 
+    /**
+     * 指定されたコードを編集する
+     */
     public function exec_edit()
     {
         $user = $this->start();
@@ -83,7 +98,10 @@ class CodeController extends AppController
         $this->redirect('code/show', array('p' => $path));
     }
 
-    public function delete()
+    /**
+     * 指定されたコードを削除する
+     */
+    public function exec_delete()
     {
         $user = $this->start();
 

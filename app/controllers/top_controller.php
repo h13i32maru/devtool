@@ -2,8 +2,18 @@
 
 class TopController extends AppController
 {
+    /**
+     * トップ画面を表示する。
+     * セッションの有無で画面の出しわけを行う
+     */
     public function index()
     {
+        $id = Session::getId();
+        if (!$id) {
+            $this->render('top/auth');
+            return;
+        }
+
         $user = $this->start();
 
         $this->redirect('code/index');
@@ -11,14 +21,13 @@ class TopController extends AppController
         $this->set(get_defined_vars());
     }
 
-    public function auth()
-    {
-    }
-
+    /**
+     * セッションを削除してサインアウトさせる
+     */
     public function signout()
     {
         Session::unsetId();
 
-        $this->redirect('top/auth');
+        $this->redirect('top/index');
     }
 }
