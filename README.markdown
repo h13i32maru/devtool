@@ -52,7 +52,14 @@ session.gc_maxlifetime = 86400
 mkdir ~/www
 cd ~/www
 git clone git@github.com:h13i32maru/devtool.git
-cd devtool/app/config/
+
+cd devtool/app
+mkdir tmp
+mkdir tmp/logs
+mkdir tmp/twig
+chmod -R 777 tmp
+
+cd config/
 #ドメインなどの必要な設定を行う
 cp _sample_core.php core.php
 #参考 https://code.google.com/apis/console/#access
