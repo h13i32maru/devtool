@@ -20,7 +20,8 @@ sudo apt-get install git
   - http://dev.classmethod.jp/cloud/p5498/
   - https://help.ubuntu.com/community/EC2StartersGuide
 
-```sh:.bashrc
+```sh
+#~/.bashrc
 #最後に追記
 export AWS_CREDENTIAL_FILE=~/credential
 export EC2_REGION=ap-northeast-1
@@ -38,7 +39,8 @@ rds-modify-db-parameter-group $name -p "name=skip-character-set-client-handshake
 ```
 
 ##PHPの設定
-```php:/etc/php5/apache2/php.ini
+```php
+#/etc/php5/apache2/php.ini
 error_reporting = E_ALL | E_STRICT
 display_errors = On
 session.cookie_lifetime = 86400
@@ -51,12 +53,16 @@ mkdir ~/www
 cd ~/www
 git@github.com:h13i32maru/devtool.git
 cd devtool/app/config/
-cp _sample_google.php google.php
+#ドメインなどの必要な設定を行う
 cp _sample_core.php core.php
+#参考 https://code.google.com/apis/console/#access
+cp _sample_google.php google.php
+
 ```
 
 ##Apacheの設定
-```apache:/etc/apache2/sites-available/devtool 
+```apache
+#/etc/apache2/sites-available/devtool
 <VirtualHost *:80>
     DocumentRoot /home/ubuntu/www/devtool/app/webroot/
     ErrorLog /home/ubuntu/www/devtool/app/tmp/logs/error.log
