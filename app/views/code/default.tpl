@@ -27,7 +27,7 @@
 
 <div class="alert alert-error attention">
 <button class="close" data-dismiss="alert">×</button>
-Codeはデータの永続性を保証しません。またDevToolにログインすることができ、URLを知っている人なら誰でも任意のCodeを見ることができます。そのため他人に見せてはまずいようなデータを保存しないでください。
+Codeはデータの永続性を保証しません。またDevToolにログインすることができ、URLを知っている人なら誰でも任意のCodeを見ることができます。そのため不特定多数の人に見せてはまずいようなデータを保存しないでください。
 以上のことを理解した上でご利用ください。
 </div>
 
