@@ -1,0 +1,5 @@
+app/config/core.php
+app/config/google.php
+app/tmp/logs/*
+app/tmp/twig/*
+app/webroot/img/*
