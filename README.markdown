@@ -51,7 +51,7 @@ session.gc_maxlifetime = 86400
 ```sh
 mkdir ~/www
 cd ~/www
-git@github.com:h13i32maru/devtool.git
+git clone git@github.com:h13i32maru/devtool.git
 cd devtool/app/config/
 #ドメインなどの必要な設定を行う
 cp _sample_core.php core.php
