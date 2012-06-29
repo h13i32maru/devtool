@@ -16,7 +16,7 @@ DietCakeはシンプルで軽量高速なフレームワークです。学習コ
 特にWebサービスを開発したことのない人、大歓迎です！僕自身Webサービスの開発はまだまだ初心者なので一緒に勉強しましょう。
 </p>
 <p class="auth-btn">
-  <a class="auth btn btn-primary" href="{{ url('google_auth/index') }}">Sign In with Google App Acount</a>
+  <a class="auth btn btn-primary" href="{{ url('google_auth/index') }}">Sign In with Google Acount</a>
 </p>
 </div>
 {% endblock %}

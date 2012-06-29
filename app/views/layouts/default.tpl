@@ -29,7 +29,7 @@
             <li><a href="{{ url('top/signout') }}">Sign Out</a>
           </ul>
         {% else %}
-          <a class="auth btn btn-primary" href="{{ url('google_auth/index') }}">Sign In with Google App Acount</a>
+          <a class="auth btn btn-primary" href="{{ url('google_auth/index') }}">Sign In with Google Acount</a>
         {% endif %}
       </div>
 
