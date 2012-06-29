@@ -18,11 +18,17 @@ a.auth {
   width:600px;
   margin:auto;
   margin-top:50px;
+  padding-bottom:20px;
 }
 
 .auth.hero-unit p {
   font-size:1.2em;
   font-weight:bold;
+}
+
+.auth.hero-unit p.auth-btn {
+  margin-top:20px;
+  text-align:center;
 }
 
 footer {
@@ -48,7 +54,6 @@ footer, footer a {
   vertical-align:middle;
   line-height:30px;
 }
-
 
 /* ---- code ---- */
 .code-form input[type="text"], .code-form select, .code-form textarea {
