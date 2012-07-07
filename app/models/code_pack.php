@@ -123,6 +123,14 @@ class CodePack extends AppModel
     }
 
     /**
+     * CodePack に紐付く特定の Code を取得する
+     */
+    public function getCode($code_id)
+    {
+        return Code::get($this->user, $code_id);
+    }
+
+    /**
      * [{id,class,code}, ...]を受け取ってコードを更新する
      * idがnullのものは新規作成とする
      */

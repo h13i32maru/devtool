@@ -51,6 +51,18 @@ class CodeController extends AppController
         $this->set(get_defined_vars());
     }
 
+    public function plain()
+    {
+        $user    = $this->start();
+        $path    = Param::get('p');
+        $code_id = Param::get('cid');
+
+        $code = CodePack::get($user, $path)->getCode($code_id);
+
+        $this->set(get_defined_vars());
+        header('Content-Type: text/plain');
+    }
+
     /**
      * 指定されたコードを編集する画面を表示する
      */

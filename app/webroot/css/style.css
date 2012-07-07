@@ -90,3 +90,22 @@ pre code {
   background:transparent !important;
   line-height:1.1;
 }
+.code-block {
+  position: relative;
+  width: 100%;
+}
+.code-block .appendix {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  padding: .66em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  visibility: hidden;
+}
+.code-block:hover .appendix {
+  visibility: visible;
+}
+
