@@ -7,6 +7,7 @@
   <meta name="format-detection" content="telephone=no" />
   <title>DevTool</title>
   <link rel="stylesheet" href="{{ url('bootstrap/css/bootstrap.min.css') }}" type="text/css"/>
+  <link rel="stylesheet" href="{{ url('bootstrap/css/bootstrap-responsive.min.css') }}" type="text/css" />
   <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
   <script type="text/javascript" src="{{ url('bootstrap/js/bootstrap.min.js') }}"></script>
