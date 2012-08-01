@@ -17,7 +17,10 @@ Create <time datetime="{{ code_pack.created }} UTC+0000"></time>
 </pre>
 
 {% for code in codes %}
+<div class="code-block">
+<p class="appendix"><a target="_blank" href="{{ url('code/plain', { p: code_pack.path, cid: code.id }) }}"><i class="icon-share"></i> Plain text</a></p>
 <pre><code class={{ code.class }}>{{ code.code }}</code></pre>
+</div>
 {% endfor %}
 
 {% endblock %}

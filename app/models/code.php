@@ -20,4 +20,15 @@ class Code extends AppModel
 
         return $codes;
     }
+
+    public static function get(User $user, $code_id)
+    {
+        $db = DB::conn();
+        $row = $db->row('SELECT * FROM code WHERE id = ?', array($code_id));
+        if ( ! $row ) {
+            throw new RecordNotFoundException;
+        }
+        $row['user'] = $user;
+        return new self($row);
+    }
 }
