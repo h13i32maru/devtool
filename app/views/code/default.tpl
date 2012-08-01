@@ -11,35 +11,34 @@
 {% block content %}
 <a class="help label label-success" data-toggle="modal" href="#help">?</a>
 <div class="container-fluid">
-<div class="row-fluid">
+  <div class="row-fluid">
 
-<div class="span3">
-  <div class="well sidebar-nav">
-    <ul class="nav nav-list">
-      {% for code_pack in code_packs %}
-      <li><a href="{{ url('code/show', {p:code_pack.path}) }}">{{ code_pack.title ? code_pack.title : '-' }}</a>
-      {% endfor %}
-    </ul>
+    <div class="span9">
+
+      <div class="alert alert-error attention">
+        <button class="close" data-dismiss="alert">×</button>
+        Codeはデータの永続性を保証しません。またDevToolにログインすることができ、URLを知っている人なら誰でも任意のCodeを見ることができます。そのため不特定多数の人に見せてはまずいようなデータを保存しないでください。
+        以上のことを理解した上でご利用ください。
+      </div>
+
+      <div class="code-content">
+        {% block code_content %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <div class="span3">
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+          {% for code_pack in code_packs %}
+          <li><a href="{{ url('code/show', {p:code_pack.path}) }}">{{ code_pack.title ? code_pack.title : '-' }}</a>
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
+
   </div>
-</div>
 
-<div class="span9">
-
-<div class="alert alert-error attention">
-<button class="close" data-dismiss="alert">×</button>
-Codeはデータの永続性を保証しません。またDevToolにログインすることができ、URLを知っている人なら誰でも任意のCodeを見ることができます。そのため不特定多数の人に見せてはまずいようなデータを保存しないでください。
-以上のことを理解した上でご利用ください。
-</div>
-
-<div class="code-content">
-{% block code_content %}
-{% endblock %}
-</div>
-</div>
-
-</div>
-
-</div>
 </div>
 
 <div class="modal hide" id="help">
@@ -66,7 +65,7 @@ Codeはデータの永続性を保証しません。またDevToolにログイン
       <li>コードにいいねをできる機能
     </ul>
   </div>
-    <div class="modal-footer">
+  <div class="modal-footer">
     <a href="#" class="btn" data-dismiss="modal">Close</a>
   </div>
 </div>
