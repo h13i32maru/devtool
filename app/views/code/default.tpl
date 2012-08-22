@@ -17,7 +17,7 @@
   <div class="well sidebar-nav">
     <ul class="nav nav-list">
       {% for code_pack in code_packs %}
-      <li><a href="{{ url('code/show', {p:code_pack.path}) }}">{{ code_pack.title ? code_pack.title : '-' }}</a>
+      <li><a href="{{ url('code/show', {p:code_pack.path}) }}">{{ code_pack.title ? code_pack.title : '-' }}</a> | <a onclick="return Code.deleteConfirm()" href="{{ url('code/exec_delete', {p:code_pack.path}) }}">Delete</a>
       {% endfor %}
     </ul>
   </div>
