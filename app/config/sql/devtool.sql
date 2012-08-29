@@ -33,7 +33,7 @@ id                          INT UNSIGNED NOT NULL AUTO_INCREMENT,
 user_id                     INT UNSIGNED NOT NULL,
 code_pack_id                INT UNSIGNED NOT NULL,
 class                       VARCHAR(255) NOT NULL,
-code                        TEXT NOT NULL,
+code                        LONGTEXT NOT NULL,
 PRIMARY KEY (id),
 INDEX (code_pack_id)
 )ENGINE=InnoDB;
