@@ -200,4 +200,20 @@ class CodePack extends AppModel
             throw new PermissionDeniedException();
         }
     }
+
+    public function copyTo(User $me)
+    {
+        if ($this->writable) {
+            throw new InvalidArgumentException('this code is yours!');
+        }
+
+        $codes_param = array();
+        foreach ($this->getCodes() as $code) {
+            $codes_param[] = array(
+                'class' => $code->class,
+                'code' => $code->code,
+            );
+        }
+        CodePack::create($me, $this->title, $this->description, $codes_param);
+    }
 }
