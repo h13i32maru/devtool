@@ -124,4 +124,18 @@ class CodeController extends AppController
 
         $this->redirect('code/index');
     }
+
+    /**
+     * 指定された他人のコードをコピーする
+     */
+    public function exec_copy()
+    {
+        $user = $this->start();
+
+        $path = Param::get('p');
+        $code_pack = CodePack::get($user, $path);
+        $code_pack->copyTo($user);
+
+        $this->redirect('code/index');
+    }
 }
