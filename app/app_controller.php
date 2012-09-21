@@ -41,13 +41,13 @@ class AppController extends Controller
         }
         if ($url === '') {
             $url = substr($_SERVER['REQUEST_URI'], strlen(APP_BASE_PATH));
-            $url = APP_URL . urlencode($url);
+            $url = APP_URL . APP_BASE_PATH . urlencode($url);
         } elseif ($url === '/') {
-            $url = APP_URL . $query;
+            $url = APP_URL . APP_BASE_PATH . $query;
         } elseif (strpos($url, 'http') === 0) {
             $url = $url . $query;
         } else {
-            $url = APP_URL . $url . $query;
+            $url = APP_URL . APP_BASE_PATH . $url . $query;
         }
         header('Location: ' . $url);
         exit;
