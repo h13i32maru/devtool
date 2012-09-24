@@ -7,6 +7,10 @@
   <a class="btn btn-primary" href="{{ url('code/edit', {p:code_pack.path}) }}">Edit</a>
   <a class="btn btn-danger" onclick="return Code.deleteConfirm()" href="{{ url('code/exec_delete', {p:code_pack.path}) }}">Delete</a>
 </header>
+{% else %}
+<header class="code">
+  <a class="btn btn-primary" href="{{ url('code/exec_copy', {p:code_pack.path}) }}">Copy</a>
+</header>
 {% endif %}
 
 <pre>
