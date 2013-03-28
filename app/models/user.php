@@ -10,7 +10,7 @@ class User extends AppModel
         $db = DB::conn();
         $row = $db->row('SELECT * FROM user WHERE id = ?', array($id));
         if (!$row) {
-            throw new RecoredNotFoundException();
+            throw new RecordNotFoundException();
         }
 
         return new self($row);
