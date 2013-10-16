@@ -22,6 +22,7 @@ class GoogleAuth extends AppModel
         $client->setClientSecret(GOOGLE_CLIENT_SECRET);
         $client->setRedirectUri(GOOGLE_REDIRECT_URI);
         $client->setDeveloperKey(GOOGLE_DEVELOPER_KEY);
+        $client->setApprovalPrompt('auto');
 
         return $client;
     }
