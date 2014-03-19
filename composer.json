@@ -26,6 +26,7 @@
         }
     ],
     "require" :{
+        "twig/twig": "1.*",
         "dietcake/dietcake": "dev-master",
         "SimpleDBI/SimpleDBI": "dev-master"
     }
