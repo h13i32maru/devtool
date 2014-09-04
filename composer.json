@@ -1,4 +1,18 @@
 {
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "dietcake/dietcake",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/dietcake/dietcake.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
     "require" :{
         "twig/twig": "1.*",
         "dietcake/dietcake": "dev-master",
