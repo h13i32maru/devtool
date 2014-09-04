@@ -17,6 +17,7 @@
         "twig/twig": "1.*",
         "dietcake/dietcake": "dev-master",
         "ttsuruoka/php-simple-dbi": "dev-master",
-        "ttsuruoka/php-time": "dev-master"
+        "ttsuruoka/php-time": "dev-master",
+        "google/apiclient": "dev-master"
     }
 }
