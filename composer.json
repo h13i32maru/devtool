@@ -1,33 +1,8 @@
 {
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "dietcake/dietcake",
-                "version": "master",
-                "source": {
-                    "url": "https://github.com/dietcake/dietcake.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "SimpleDBI/SimpleDBI",
-                "version": "master",
-                "source": {
-                    "url": "https://github.com/ttsuruoka/php-simple-dbi.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        }
-    ],
     "require" :{
         "twig/twig": "1.*",
         "dietcake/dietcake": "dev-master",
-        "SimpleDBI/SimpleDBI": "dev-master"
+        "ttsuruoka/php-simple-dbi": "dev-master",
+        "ttsuruoka/php-time": "dev-master"
     }
 }

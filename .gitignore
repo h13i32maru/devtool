@@ -3,4 +3,5 @@ app/config/google.php
 app/tmp/logs/*
 app/tmp/twig/*
 app/webroot/img/*
-vendor/.git
+composer.lock
+vendor/
