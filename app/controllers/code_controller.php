@@ -60,7 +60,7 @@ class CodeController extends AppController
         $code = CodePack::get($user, $path)->getCode($code_id);
 
         $this->set(get_defined_vars());
-        header('Content-Type: text/plain');
+        header('Content-Type: text/plain; charset=utf-8');
     }
 
     /**
