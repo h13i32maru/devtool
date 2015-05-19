@@ -5,9 +5,9 @@
  * http://code.google.com/p/google-api-php-client/wiki/OAuth2
  */
 
-require_once VENDOR_DIR . 'google-api-php-client/src/apiClient.php';
-require_once VENDOR_DIR . 'google-api-php-client/src/contrib/apiOauth2Service.php';
-require_once CONFIG_DIR . 'google.php';
+require_once VENDOR_DIR.'/google/apiclient/src/Google/Client.php';
+require_once VENDOR_DIR.'/google/apiclient/src/Google/Service/Analytics.php';
+require_once VENDOR_DIR.'/google/apiclient/src/Google/Service/Oauth2.php';
 
 class GoogleAuth extends AppModel
 {
@@ -17,12 +17,13 @@ class GoogleAuth extends AppModel
      */
     public static function getClient()
     {
-        $client = new apiClient();
+        $client = new Google_Client();
         $client->setClientId(GOOGLE_CLIENT_ID);
         $client->setClientSecret(GOOGLE_CLIENT_SECRET);
         $client->setRedirectUri(GOOGLE_REDIRECT_URI);
         $client->setDeveloperKey(GOOGLE_DEVELOPER_KEY);
         $client->setApprovalPrompt('auto');
+        $client->setScopes(array('email','profile','openid'));
 
         return $client;
     }
@@ -34,7 +35,7 @@ class GoogleAuth extends AppModel
     public static function getAuthUrl()
     {
         $client = self::getClient();
-        $oauth2 = new apiOauth2Service($client);
+        $oauth2 = new Google_Service_Oauth2($client);
         return $client->createAuthUrl();
     }
 
@@ -50,12 +51,13 @@ class GoogleAuth extends AppModel
         }
 
         $client = self::getClient();
-        $oauth2 = new apiOauth2Service($client);
+        $oauth2 = new Google_Service_Oauth2($client);
 
-        $client->authenticate();
+        $client->authenticate($code);
         $token = $client->getAccessToken();
 
         $user = $oauth2->userinfo->get();
+
         if (!self::isAllowed($user)) {
             throw new PermissionDeniedException();
         }
@@ -69,8 +71,8 @@ class GoogleAuth extends AppModel
      */
     public static function isAllowed($user)
     {
-        $email = filter_var($user['email'], FILTER_SANITIZE_EMAIL);
-        $tmp = explode('@', $email);
+        $email  = filter_var($user['email'], FILTER_SANITIZE_EMAIL);
+        $tmp    = explode('@', $email);
         $domain = array_pop($tmp);
 
         $allow_domains = explode(',', GOOGLE_ALLOW_DOMAINS);

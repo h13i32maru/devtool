@@ -1,8 +1,8 @@
-##サーバ
+## サーバ
 - AWS EC2 Ubuntu Server 12.04 LTS
 - AWS RDS MySQL5.5
 
-##必要なパッケージのインストール
+## 必要なパッケージのインストール
 ```sh
 sudo apt-add-repository ppa:awstools-dev/awstools
 sudo apt-get update
@@ -14,7 +14,7 @@ sudo apt-get install mysql-client
 sudo apt-get install git
 ```
 
-##RDS CLIの設定
+## RDS CLIの設定
 - credentialファイルは予め準備しておくこと
 - 参考
   - http://dev.classmethod.jp/cloud/p5498/
@@ -27,7 +27,7 @@ export AWS_CREDENTIAL_FILE=~/credential
 export EC2_REGION=ap-northeast-1
 ```
 
-##RDSの設定
+## RDSの設定
 ```sh
 name="devtool"
 rds-modify-db-parameter-group $name -p "name=character_set_client, value=utf8, method=immediate"
@@ -38,7 +38,8 @@ rds-modify-db-parameter-group $name -p "name=character_set_server, value=utf8, m
 rds-modify-db-parameter-group $name -p "name=skip-character-set-client-handshake, value=1, method=pending-reboot"
 ```
 
-##PHPの設定
+## PHPの設定
+
 ```php
 #/etc/php5/apache2/php.ini
 error_reporting = E_ALL | E_STRICT
@@ -47,13 +48,16 @@ session.cookie_lifetime = 86400
 session.gc_maxlifetime = 86400
 ```
 
-##devtoolのダウンロード
+## devtoolのダウンロード
+
 ```sh
 mkdir ~/www
 cd ~/www
 git clone git@github.com:h13i32maru/devtool.git
+cd devtool
+composer install
 
-cd devtool/app
+cd app
 mkdir tmp
 mkdir tmp/logs
 mkdir tmp/twig

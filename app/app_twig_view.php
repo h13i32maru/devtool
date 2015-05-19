@@ -1,5 +1,5 @@
 <?php
-require_once VENDOR_DIR . 'Twig/lib/Twig/Autoloader.php';
+require_once VENDOR_DIR . 'twig/twig/lib/Twig/Autoloader.php';
 define('TWIG_EXT', '.tpl');
 
 class AppTwigView

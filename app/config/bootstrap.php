@@ -1,4 +1,7 @@
 <?php
+// autoload
+require_once VENDOR_DIR.'autoload.php';
+
 // application
 require_once APP_DIR.'app_controller.php';
 require_once APP_DIR.'app_model.php';
@@ -8,7 +11,6 @@ require_once APP_DIR.'app_exception.php';
 // config
 require_once CONFIG_DIR.'database.php';
 require_once CONFIG_DIR.'router.php';
-require_once CONFIG_DIR.'time.php';
 require_once CONFIG_DIR.'log.php';
 require_once CONFIG_DIR.'session.php';
 
@@ -22,7 +24,7 @@ define('IMG_DIR', WEBROOT_DIR.'img/');
 // オートロード
 // パフォーマンス向上のため、使用するクラスのみ動的に require_once する
 spl_autoload_register(
-    function($name) 
+    function($name)
     {
         $filename = Inflector::underscore($name) . '.php';
         if (strpos($name, 'Controller') !== false) {
