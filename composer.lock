@@ -1,0 +1,48 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "9e368ae95c0d0cfda1b45f372eb9ec22",
+    "packages": [
+        {
+            "name": "SimpleDBI/SimpleDBI",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ttsuruoka/php-simple-dbi.git",
+                "reference": "master"
+            },
+            "type": "library",
+            "time": "2013-06-19 12:07:37"
+        },
+        {
+            "name": "dietcake/dietcake",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dietcake/dietcake.git",
+                "reference": "master"
+            },
+            "type": "library",
+            "time": "2013-08-23 08:48:41"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "dietcake/dietcake": 20,
+        "simpledbi/simpledbi": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}
